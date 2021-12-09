@@ -1,13 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import './index.css';
 import App from './App';
+
+import Header from "../src/components/Header/Header"
+import SideHeader from "../src/components/SideHeader/index"
+import New from "./containers/New/New.js"
+import Home from "./containers/Home/Home.js"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+  <BrowserRouter>
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Header/>
+  <SideHeader/>
+
+    <Routes>
+      {/* <Route path="/About" element={<About/>} /> */}
+      <Route path="/new" element={<New/>} />
+      <Route path="/" element={<Home/>} />
+      </Routes>
+
+  </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
